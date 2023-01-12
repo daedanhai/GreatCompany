@@ -152,6 +152,7 @@
     position: absolute;
     bottom: 16px;
     left: 50%;
+    right: auto;
     transform: translate(-50%,0);
     font-family: 'Poppins';
     font-size: 12px;
@@ -393,4 +394,17 @@
     font-weight: 300;
     color: #0121E3;
     padding-bottom: 60px;
+}
+.swiper-button-next:after, .swiper-button-prev:after{
+   display: none;
+}
+.swiper-button-next,.swiper-button-prev{
+    background: url('../imgs/arr_swiper.png')no-repeat center center;
+    background-size: auto 20px;
+    width: 40px !important;
+    height: 40px !important;
+    background-color: #0121E3;
+}
+.swiper-button-prev{
+    transform: rotate(180deg);
 }

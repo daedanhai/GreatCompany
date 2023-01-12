@@ -1,7 +1,7 @@
 let data = [
     {
         id: 0,
-        title:'huit',
+        title:'ddd',
         content:'',
         coverImgUrl:'https://images.unsplash.com/photo-1512486130939-2c4f79935e4f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80',
         tags:['WEB','RESPONSIVE','REACT'],

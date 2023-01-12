@@ -91,6 +91,12 @@
     margin-top: 0;
     height: 100%;
 }
+#main-page .section01 .scroll-line{
+    left: auto;
+    bottom: 50px;
+    transform: (50%,0);
+    right: 20px;
+}
 #main-page .section02 > .section-inner{
     padding: 0;
     padding-top: 150px;
@@ -120,7 +126,7 @@
     position: relative;
     width: 33.333%;
     box-sizing: content-box;
-    margin-right: 0;
+    margin-right: 20px;
 }
 #main-page .section02 .pofol-swiper .swiper-slide:first-child{
     padding-left: 0;
@@ -241,8 +247,12 @@
     color: #0121E3;
     padding-bottom: 120px;
 }
-
-
-
-
+.swiper-button-next,.swiper-button-prev{
+    background-size: auto 40px;
+    width: 80px !important;
+    height: 80px !important;
+}
+.swiper-button-prev{
+    transform: rotate(180deg);
+}
 }/*PC 반응형 END*/

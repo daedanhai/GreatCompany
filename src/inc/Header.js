@@ -1,10 +1,13 @@
 import { Link } from 'react-router-dom';
 import { useEffect, useState } from 'react';
-
+//modal
+import ModalContact from '../modal/ModalContact';
 
 const Header = () => {
     const [ScrollY, setScrollY] = useState(0); // window 의 pageYOffset값을 저장 
     const [ScrollActive, setScrollActive] = useState(false);
+    const [modalContact,setModalContact] = useState(false);
+
     function handleScroll() { 
         if(ScrollY > 60) {
             setScrollY(window.pageYOffset);
@@ -27,10 +30,12 @@ const Header = () => {
             <h1 className='logo'><Link to='/'><img src={require('../assets/imgs/logo.png')} alt='대단한컴퍼니'/></Link></h1>
             <ul className='h-menus'>
             <li><Link to='/portfolio'>Portfolio.</Link></li>
-            <li><a href='' className='contact'>Contact.</a></li>
+            <li><a className='contact'>Contact.</a></li>
             </ul>
         </header>
         <div className={ScrollActive ? "header-area fixed" : 'header-area' }></div>
+        { modalContact === true ? <ModalContact /> : null }
+
     </>
     )
     

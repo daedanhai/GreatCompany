@@ -1,3 +1,4 @@
+import { useEffect, useState, useRef } from 'react';
 import { Link, Route, Routes } from 'react-router-dom';
 import './App.css';
 import './assets/css/reset.css';
@@ -6,9 +7,12 @@ import './assets/css/animation.css';
 import './assets/css/responsive.css';
 // Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react';
+import { Navigation } from 'swiper';
+
 // Import Swiper styles
 import 'swiper/css';
-import { useEffect, useState } from 'react';
+import "swiper/css/navigation";
+
 import Marquee from "react-fast-marquee";
 import AOS from "aos";
 import "aos/dist/aos.css";
@@ -20,13 +24,15 @@ import data from './data.js';
 const App = () => {
   let [portfolio] = useState(data);
   let pofolcopy = portfolio.slice(0,9);
-  
+
   useEffect(() => {
     AOS.init();
-  });
+    return () => {}
+  },[]);  
+
   return (
     <div className='App'>
-      <Header/>
+      <Header />
       <Routes>
         <Route path='/' element={
           <>
@@ -70,13 +76,14 @@ const App = () => {
                       data-aos-duration="1000"
                     >Portfolio.</h3>
                   </div>
-
+                  
                   <Swiper
+                    navigation={true}
+                    modules={[Navigation]}
+                    slidesPerView={'auto'}
                     data-aos="fade-left"
                     data-aos-duration="1000"
-                    slidesPerView={'auto'}
                     // onSlideChange={() => console.log('slide change')}
-                    // onSwiper={(swiper) => swiperInit(swiper)}
                     className='pofol-swiper'
                   >
                     {
@@ -107,7 +114,8 @@ const App = () => {
                   <div className='btn-wrap'>
                     <Link to='/portfolio' className='btn-more'>More</Link>
                   </div>
-
+                
+              
                 </div>
               </div>
               
