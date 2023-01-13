@@ -125,8 +125,8 @@
 #main-page .section02 .pofol-swiper .swiper-slide{
     position: relative;
     width: 33.333%;
-    box-sizing: content-box;
-    margin-right: 20px;
+    margin-right: 10px;
+    box-sizing: border-box;
 }
 #main-page .section02 .pofol-swiper .swiper-slide:first-child{
     padding-left: 0;
