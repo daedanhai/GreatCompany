@@ -10,8 +10,9 @@ import ModalContact from '../modal/ModalContact';
 const Header = () => {
     const [ScrollY, setScrollY] = useState(0); // window 의 pageYOffset값을 저장 
     const [ScrollActive, setScrollActive] = useState(false);
+    const dispatch = useDispatch();
+    let modalContact = useSelector((state) => { return state });
 
-    let modalContact = useSelector((state) => { return state })
 
     function handleScroll() { 
         if(ScrollY > 60) {
@@ -28,7 +29,7 @@ const Header = () => {
         return () => { 
           window.removeEventListener("scroll", handleScroll);
         }; //  window 에서 스크롤을 감시를 종료
-      });
+      },[]);
     return(
     <>
         <header id='header'>
@@ -39,8 +40,7 @@ const Header = () => {
             </ul>
         </header>
         <div className={ScrollActive ? "header-area fixed" : 'header-area' }></div>
-        { modalContact === true ? <ModalContact /> : null }
-
+        { modalContact.modalContact === true ? <ModalContact /> : null }
     </>
     )
     

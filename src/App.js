@@ -20,6 +20,7 @@ import "aos/dist/aos.css";
 import Header from './inc/Header';
 //data
 import data from './data.js';
+import Portfolio from './pages/Portfolio';
 
 const App = () => {
   let [portfolio] = useState(data);
@@ -89,7 +90,7 @@ const App = () => {
                     {
                       pofolcopy.map((item,i)=>{
                         return(
-                        <SwiperSlide key={i}>
+                        <SwiperSlide key={item.id}>
                           <div className='thumb'>
                             <img src={ item.coverImgUrl }/>
                             <div className='title-wrap'>
@@ -164,7 +165,7 @@ const App = () => {
             </div>
           </>
         }/>
-        <Route path='/portfolio' element={<h1>포폴</h1>}/>
+        <Route path='/portfolio' element={<Portfolio />}/>
         <Route path='*' element={<h1>404</h1>}/>
       </Routes>
 

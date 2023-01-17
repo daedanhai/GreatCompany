@@ -2,10 +2,16 @@ import { configureStore, createSlice } from "@reduxjs/toolkit";
 
 let modalContact = createSlice({
     name: 'modalContact',
-    initialState : '',
+    initialState : false,
     reducers : {
-        changeModalContact(){
-            console.log('debug:');
+        changeModalContact(state){
+            if(state === true){
+                document.body.style.overflow = 'unset';
+                return false
+            } else {
+                document.body.style.overflow = 'hidden';
+                return true
+            }
         }
     }
 });
