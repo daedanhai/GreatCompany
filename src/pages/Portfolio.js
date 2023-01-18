@@ -30,8 +30,12 @@ const Portfolio = () => {
       // }
       // console.log(test(data,filterArr))
       // data를 필터링 해 filterArr를 갖고 data.tags 필터링을 해
-      // 찾고 setList로 state 변경 
+      // 찾고 setList로 state 변경
 
+      const _list = filterArr.length === 0 ? data : data.filter( x => x.tags.filter(it => filterArr.includes(it)).length != 0);
+      setList(
+        _list
+      )
     },[filterArr]);
 
     return(
