@@ -6,13 +6,15 @@
     left: 0;
     width: 100%;
     z-index: 999;
-    background: #fff;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.4) 100%),
+linear-gradient(0deg, rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.4));
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 0;
     height: 54px;
     transition: 0.3s ease-in-out height;
+    box-shadow: 0px 4px 4px 0px hsba(0, 0%, 0%, 0.25);
 }
 .header-area{
     height: 54px;
@@ -500,7 +502,7 @@
 
 /*포트폴리오 페이지*/
 #portfolio-page{}
-#portfolio-page .page-container .page-inner{
+#portfolio-page.page-container .page-inner{
     position: relative;
     padding-top: 40px;
 }
@@ -542,8 +544,7 @@
     line-height: 16px;
     color: #0121E3;
 }
-.tags-select-box > li > button.active,
-.tags-select-box > li > button:hover{
+.tags-select-box > li > button.active{
     background: #0121E3;
     color: #fff;
 }
@@ -559,6 +560,7 @@
     box-sizing: content-box;
     cursor: pointer;
     margin-bottom: 20px;
+    overflow: hidden;
 }
 .portfolio-list-wrap > li > .thumb{
     position: relative;

@@ -1,31 +1,39 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 //data
 import data from '../data.js';
 
 const Portfolio = () => {
-    let [ portfolio ] = useState(data);
-    const [copyPort, setCopyPort] = useState(portfolio);
+    const [ list, setList ] = useState(data);
+    const [ filterArr, setFilterArr ] = useState([]);
+    const [tagsArr] = useState(['WEB','RESPONSIVE','REACT','VUE','DESIGN','APP','HYBRID APP']);
+  
+    const tagsNodes = document.querySelectorAll('.tags-select-box li > button');
 
-    const tagsArr = ['ALL',...new Set(portfolio.map((item,i) => item.tags))];
-    const tags = new Set(tagsArr.flat());
-    const newTags = [...tags];
-
-    function tagsFilter(e,a){
-      const target = e.target;
-      // const siblings = (el) => [...el.parentElement.parentElement.children].filter(node => node != el);
-      e.preventDefault();
-      
-      target.classList.add('active');
-    
-      if(a === 'ALL'){
-        setCopyPort(portfolio);
-      } else {
-        setCopyPort(
-          portfolio.filter( content => content.tags.includes(a) )
-        )
-      }
+    const tagsFilter = (a) => {
+      setFilterArr((x) => {
+        const _filterArr = a === 'ALL' ? [] : (x.includes(a) ? x.filter( y => y!=a ) :  [...x,a]);
+        return _filterArr; 
+      });
     }
-   
+
+    useEffect(() => {
+      // const test = (data, filterArr) => {
+      //   let filteredResult = [];
+      //   for(let _data of data){
+      //     for(let _filterArr of filterArr){
+      //       if(data.includes(_filterArr)){
+      //         filteredResult.push(_data)
+      //       }
+      //     }
+      //   }
+      //   return filteredResult
+      // }
+      // console.log(test(data,filterArr))
+      // data를 필터링 해 filterArr를 갖고 data.tags 필터링을 해
+      // 찾고 setList로 state 변경 
+
+    },[filterArr]);
+
     return(
         <>
         <div id='portfolio-page' className='page-container' >
@@ -41,10 +49,11 @@ const Portfolio = () => {
                   data-aos-delay="600"
                   data-aos-duration="500"
                 >
+                  <li><button onClick={()=>{tagsFilter('ALL')}} className={filterArr.length === 0 ? 'active' : ''}>ALL</button></li>
                   {
-                    newTags.map((a,i)=>{
+                    tagsArr.map((a,i)=>{
                       return(
-                        <li key={i}><button onClick={(e)=>{tagsFilter(e,a)}}>{a}</button></li>
+                        <li key={i}><button onClick={()=>{tagsFilter(a)}} className={filterArr.includes(a) ? 'active' : ''}>{a}</button></li>
                       )
                     })
                   }
@@ -57,7 +66,7 @@ const Portfolio = () => {
                 >
                     <ul className='portfolio-list-wrap'>
                     {
-                      copyPort.map((item,i)=>{
+                      list.map((item,i)=>{
                         return(
                         <li key={item.id}>
                           <div className='thumb'>

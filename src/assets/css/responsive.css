@@ -258,13 +258,11 @@
 /*contact*/
 .contact-container{
     width: 100%;
-    padding: 0 20px;
     box-sizing: border-box;
 }
 .contact-wrap{
     display: flex;
     width: 100%;
-    max-width: 1600px;
     margin: 0 auto;
     justify-content:flex-start;
 }
@@ -390,6 +388,13 @@
     font-weight: 500;
     line-height: 37px;
 }
-
+.modal-container .contact-container{
+    padding: 0 120px;
+}
+.modal-container .contact-wrap{
+    max-width: 1600px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
 
 }/*PC 반응형 END*/
