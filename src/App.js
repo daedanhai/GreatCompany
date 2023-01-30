@@ -21,15 +21,25 @@ import Header from './inc/Header';
 //data
 import data from './data.js';
 import Portfolio from './pages/Portfolio';
+import NotFoundpage from './pages/NotFoundpage';
+import Detail from './pages/Detail';
 
 const App = () => {
-  let [portfolio] = useState(data);
-  let pofolcopy = portfolio.slice(0,9);
+  const [portfolio] = useState(data);
+  let portcopy = [...portfolio];
+  shuffle(portcopy);
+  portcopy = portcopy.slice(0,9)
 
+  function shuffle(array) {
+    array.sort(() => Math.random() - 0.5);
+  }
+  
   useEffect(() => {
     AOS.init();
     return () => {}
-  },[]);  
+  },[]);
+
+  
 
   return (
     <div className='App'>
@@ -88,11 +98,13 @@ const App = () => {
                     className='pofol-swiper'
                   >
                     {
-                      pofolcopy.map((item,i)=>{
+                      portcopy.map((item)=>{
                         return(
                         <SwiperSlide key={item.id}>
+                          <Link to={'/detail/'+ item.id}>
+                          
                           <div className='thumb'>
-                            <img src={ item.coverImgUrl }/>
+                            <img src={ require(`./assets/imgs/portfolio/port_id${item.id}_cover.jpg`) } alt={item.title}/>
                             <div className='title-wrap'>
                               <h6 className='title'>{ item.title }</h6>
                               <div className='tags'>
@@ -106,6 +118,7 @@ const App = () => {
                               </div>
                             </div>
                           </div>
+                          </Link>
                         </SwiperSlide>
                         )
                       })
@@ -165,8 +178,9 @@ const App = () => {
             </div>
           </>
         }/>
-        <Route path='/portfolio' element={<Portfolio />}/>
-        <Route path='*' element={<h1>404</h1>}/>
+        <Route path='/portfolio' element={<Portfolio data={data}/>}/>
+        <Route path='/detail/:id' element={<Detail data={data}/>}/>
+        <Route path='*' element={<NotFoundpage />}/>
       </Routes>
 
       <footer id='footer'>

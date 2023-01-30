@@ -134,28 +134,28 @@
 #main-page .section02 .pofol-swiper .swiper-slide:last-child{
     padding-right: 0;
 }
-#main-page .section02 .pofol-swiper .swiper-slide > .thumb > .title-wrap{
+#main-page .section02 .pofol-swiper .swiper-slide > a .thumb > .title-wrap{
     height: 80px;
     padding: 0 40px;
 }
-#main-page .section02 .pofol-swiper .swiper-slide > .thumb > .title-wrap > h6{
+#main-page .section02 .pofol-swiper .swiper-slide > a .thumb > .title-wrap > h6{
     font-size: 24px;
 }
-#main-page .section02 .pofol-swiper .swiper-slide > .thumb > .title-wrap > .tags > span{
+#main-page .section02 .pofol-swiper .swiper-slide > a .thumb > .title-wrap > .tags > span{
     font-size: 20px;
     font-weight: 500;
     line-height: 23px;
 }
-#main-page .section02 .pofol-swiper .swiper-slide:hover > .thumb > .title-wrap,
-#main-page .section02 .pofol-swiper .swiper-slide.active > .thumb > .title-wrap{
+#main-page .section02 .pofol-swiper .swiper-slide:hover > a .thumb > .title-wrap,
+#main-page .section02 .pofol-swiper .swiper-slide.active > a .thumb > .title-wrap{
     height: 100%;
     align-items:center;
     justify-content: flex-start;
     flex-direction: column;
     padding: 40px;
 }
-#main-page .section02 .pofol-swiper .swiper-slide:hover > .thumb > .title-wrap > .tags,
-#main-page .section02 .pofol-swiper .swiper-slide.active > .thumb > .title-wrap > .tags{
+#main-page .section02 .pofol-swiper .swiper-slide:hover > a .thumb > .title-wrap > .tags,
+#main-page .section02 .pofol-swiper .swiper-slide.active > a .thumb > .title-wrap > .tags{
     margin-top: 40px;
 }
 #main-page .section02 .pofol-swiper .swiper-slide:hover > .thumb > .title-wrap > h6,
@@ -262,6 +262,7 @@
 }
 .contact-wrap{
     display: flex;
+    flex-direction: column;
     width: 100%;
     margin: 0 auto;
     justify-content:flex-start;
@@ -278,7 +279,7 @@
     justify-content: center;
     flex-direction: column;
     text-align: center;
-    padding: 80px;
+    padding: 40px;
     width: 50%;
     box-sizing: border-box;
 }
@@ -298,7 +299,7 @@
 }
 .contact-wrap .box > .top{
     padding: 0;
-    margin-top: 120px;
+    margin-top: 60px;
 }
 .contact-wrap .box > .top > .logo > img{
     height: 80px;
@@ -314,10 +315,20 @@
     line-height: 120px;
     margin-top: 103px;
 }
+.contact-wrap .info > li.location{
+    width: 100%;
+}
+.contact-wrap .info > li.location > p{
+    font-family: 'GmarketSans';
+    font-weight: 300;
+    line-height: 1.6em;
+}
 /*포트폴리오 페이지*/
+#portfolio-page{
+    padding-bottom: 120px;
+}
 .page-container .page-inner{
     padding-top: 120px;
-    padding-bottom: 120px;
 }
 .page-container .page-title{
     font-size: 80px;
@@ -357,33 +368,36 @@
     margin-bottom: 20px;
     padding: 0 10px;
 }
+.portfolio-list-wrap > li > a{
+    display: block;
+}
 /**/
-.portfolio-list-wrap > li > .thumb > .title-wrap{
+.portfolio-list-wrap > li > a .thumb > .title-wrap{
     height: 80px;
     padding: 0 40px;
 }
-.portfolio-list-wrap > li > .thumb > .title-wrap > h6{
+.portfolio-list-wrap > li > a > .thumb > .title-wrap > h6{
     font-size: 24px;
 }
-.portfolio-list-wrap > li > .thumb > .title-wrap > .tags > span{
+.portfolio-list-wrap > li > a > .thumb > .title-wrap > .tags > span{
     font-size: 20px;
     font-weight: 500;
     line-height: 23px;
 }
-.portfolio-list-wrap > li:hover > .thumb > .title-wrap,
-.portfolio-list-wrap > li.active > .thumb > .title-wrap{
+.portfolio-list-wrap > li > a:hover > .thumb > .title-wrap,
+.portfolio-list-wrap > li > a.active > .thumb > .title-wrap{
     height: 100%;
     align-items:center;
     justify-content: flex-start;
     flex-direction: column;
     padding: 40px;
 }
-.portfolio-list-wrap > li:hover > .thumb > .title-wrap > .tags,
-.portfolio-list-wrap > li.active > .thumb > .title-wrap > .tags{
+.portfolio-list-wrap > li > a:hover > .thumb > .title-wrap > .tags,
+.portfolio-list-wrap > li > a.active > .thumb > .title-wrap > .tags{
     margin-top: 40px;
 }
-.portfolio-list-wrap > li:hover > .thumb > .title-wrap > h6,
-.portfolio-list-wrap > li.active > .thumb > .title-wrap > h6{
+.portfolio-list-wrap > li > a:hover > .thumb > .title-wrap > h6,
+.portfolio-list-wrap > li > a.active > .thumb > .title-wrap > h6{
     font-size: 32px;
     font-weight: 500;
     line-height: 37px;
@@ -397,4 +411,99 @@
     padding: 0 20px;
 }
 
+/*404 페이지*/
+.notfonund-page{
+    padding-top: 120px;
+}
+.notfonund-page .text-wrap > h4{
+    font-size: 160px;
+}
+.notfonund-page .text-wrap > h5{
+    margin-top: 60px;
+    font-size: 48px;
+}
+.notfonund-page .text-wrap > p{
+    font-size: 32px;
+}
+.notfonund-page .btn-wrap{
+    margin-top: 80px;
+}
+.notfonund-page .btn-wrap > a{
+    padding: 20px 40px;
+    border-radius: 60px;
+    font-size: 24px;
+}
+/*상세 페이지*/
+.detail-page {
+    position: relative;
+    padding-bottom: 120px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+.detail-page .cover-wrap{
+    width: 60%;
+    height: 400px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+.detail-page .desc{
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 40%;
+    box-sizing: border-box;
+    padding: 20px 40px;
+    padding-bottom: 80px;
+}
+.detail-page .text-wrap{
+    margin-top: 40px;
+    padding: 0 0px;
+}
+.detail-page .text-wrap > h2{
+    font-size: 32px;
+}
+.detail-page .text-wrap > p{
+    margin-top: 10px;
+    font-size:24px;
+}
+.detail-page .tags-wrap{
+    padding: 0 0;
+    margin-top: 30px;
+}
+.detail-page .tags-wrap > li{
+    padding: 10px 20px;
+    font-size: 18px;
+    background: rgba(1, 33, 227, 0.1);
+    color: #0121E3;
+    border-radius: 20px;
+    margin-right: 10px;
+}
+.detail-page .content-wrap{
+    position: relative;
+    width: 100%;
+    padding-top: 200px;
+}
+.detail-page .content-wrap::after{
+    height: 160px;
+}
+.detail-page .content-wrap .content-img {
+    margin-bottom: 40px;
+}
+.detail-page .content-wrap .content-img > img {
+    width: 100%;
+    vertical-align: top;
+}
+.port-go{
+    bottom: 80px;
+    width: 80px;
+    height: 50px;
+}
+.port-go.next{
+    right: 40px;
+}
+.port-go.prev{
+    left: 40px;
+}
 }/*PC 반응형 END*/

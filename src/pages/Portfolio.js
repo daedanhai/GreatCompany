@@ -1,43 +1,24 @@
 import { useEffect, useState } from 'react';
-//data
-import data from '../data.js';
+import { Link } from 'react-router-dom';
 
-const Portfolio = () => {
-    const [ list, setList ] = useState(data);
+const Portfolio = ({data}) => {
+    let [ list, setList ] = useState(data);
+    let listCopy = [...list.reverse()];
     const [ filterArr, setFilterArr ] = useState([]);
-    const [tagsArr] = useState(['WEB','RESPONSIVE','REACT','VUE','DESIGN','APP','HYBRID APP']);
-  
-    const tagsNodes = document.querySelectorAll('.tags-select-box li > button');
-
+    const [ tagsArr ] = useState(['WEB','RESPONSIVE','VUE','APP','HYBRID APP','SOLUTION']);
     const tagsFilter = (a) => {
       setFilterArr((x) => {
         const _filterArr = a === 'ALL' ? [] : (x.includes(a) ? x.filter( y => y!=a ) :  [...x,a]);
         return _filterArr; 
       });
     }
-
     useEffect(() => {
-      // const test = (data, filterArr) => {
-      //   let filteredResult = [];
-      //   for(let _data of data){
-      //     for(let _filterArr of filterArr){
-      //       if(data.includes(_filterArr)){
-      //         filteredResult.push(_data)
-      //       }
-      //     }
-      //   }
-      //   return filteredResult
-      // }
-      // console.log(test(data,filterArr))
-      // data를 필터링 해 filterArr를 갖고 data.tags 필터링을 해
-      // 찾고 setList로 state 변경
-
       const _list = filterArr.length === 0 ? data : data.filter( x => x.tags.filter(it => filterArr.includes(it)).length != 0);
       setList(
         _list
       )
     },[filterArr]);
-
+ 
     return(
         <>
         <div id='portfolio-page' className='page-container' >
@@ -70,11 +51,12 @@ const Portfolio = () => {
                 >
                     <ul className='portfolio-list-wrap'>
                     {
-                      list.map((item,i)=>{
+                      listCopy.reverse().map((item)=>{
                         return(
                         <li key={item.id}>
+                          <Link to={'/detail/'+ item.id}>
                           <div className='thumb'>
-                            <img src={ item.coverImgUrl }/>
+                            <img src={ require(`../assets/imgs/portfolio/port_id${item.id}_cover.jpg`) }/>
                             <div className='title-wrap'>
                               <h6 className='title'>{ item.title }</h6>
                               <div className='tags'>
@@ -88,6 +70,7 @@ const Portfolio = () => {
                               </div>
                             </div>
                           </div>
+                          </Link>
                         </li>
                         )
                       })

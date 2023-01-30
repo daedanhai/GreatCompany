@@ -37,7 +37,12 @@ const ModalContact = () => {
                         <p><a href="tel:010-2227-0570">+82) 010.2227.0570</a></p>
                         <p><a href="tel:010-7160-3896">+82) 010.7160.3896</a></p>
                     </li>
+                    <li className='location'>
+                        <h6>Location_</h6>
+                        <p>01405 서울특별시 도봉구 노해로 341 신원리베르텔 530호 대단한컴퍼니</p>
+                    </li>
                 </ul>
+                
             </div>
         </div>
     </div>
