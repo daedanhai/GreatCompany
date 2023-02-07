@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+  <channel>
+    <title>대단한 컴퍼니</title>
+    <link>http://www.greatcompany.kr/</link>
+    <description>웹/앱 잘만드는 집 - 디자인 부터 기획,개발 한번에 해결!</description>
+    <item>
+      <title>포트폴리오</title>
+      <link>http://www.greatcompany.kr/portfolio</link>
+      <description>글 내용 전체(또는 일부)</description>
+      <pubDate>발행시간</pubDate>
+      <guid>http://www.greatcompany.kr/portfolio</guid>
+    </item>
+  </channel>
+</rss>
