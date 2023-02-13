@@ -186,7 +186,7 @@ const App = () => {
       <footer id='footer'>
         <ul className='company'>
           <li>01405 서울특별시 도봉구 노해로 341 신원리베르텔 530호 대단한컴퍼니</li>
-          <li>E-mail <a href='mailto:daedan@greatcompany.kr'>daedan@greatcompany.kr</a> <a href='tel:02-000-0000'></a>Tel. 02-000-0000.</li>
+          <li>E-mail <a href='mailto:daedan@greatcompany.kr'>daedan@greatcompany.kr</a> <a href='tel:010-7160-3896'></a>Tel. 010-7160-3896.</li>
         </ul>
         <h5 className='f-logo'><img src={require('./assets/imgs/f-logo.png')} alt='(주)대단한컴퍼니'/></h5>
       </footer>
