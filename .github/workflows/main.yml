@@ -28,3 +28,14 @@ jobs:
         run: npm run build
         env: 
           NODE_ENV: production
+          
+      - name: SSH deploy build outputs
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.REMOTE_IP }}
+          username: ${{ secrets.REMOTE_ID }}
+          password: ${{ secrets.REMOTE_PASSWORD }}
+          port: ${{ secrets.REMOTE_PORT }}
+          source: "build/*"
+          strip_components: 1
+          target: "/home/greatcompany/build"
